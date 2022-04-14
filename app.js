@@ -23,6 +23,7 @@ router.get('/hello/:name', (req, res) => {
 });
 
 router.get('/new', (req, res) => {
+    // just add a comment
     res.send("Hi! You are NEW!")
 });
 
