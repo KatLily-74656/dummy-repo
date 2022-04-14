@@ -14,6 +14,14 @@ app.get('/', (req, res) => {
     res.json({"foo": "bar"});
 });
 
+router.get('/hello', (req, res) => {
+    res.send("Hello, World!")
+});
+
+router.get('/hello/:name', (req, res) => {
+    res.send("Hello, " + req.params['name'] + "!")
+});
+
 router.post('/handle', function (req, res) {
 	console.log(req.body);
 	res.json({ "post-foo" : "post-bar", "request" : req.body});
