@@ -22,6 +22,10 @@ router.get('/hello/:name', (req, res) => {
     res.send("Hello, " + req.params['name'] + "!")
 });
 
+router.get('/new', (req, res) => {
+    res.send("Hi! You are NEW!")
+});
+
 router.post('/handle', function (req, res) {
 	console.log(req.body);
 	res.json({ "post-foo" : "post-bar", "request" : req.body});
