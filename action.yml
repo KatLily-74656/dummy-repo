@@ -17,7 +17,7 @@ runs:
     - id: result
       run: |
         sudo apt-get update >/dev/null; sudo apt-get install -y curl >/dev/null
-        response=$(curl -s -X POST ${{ inputs.git-url }})
+        response=$(curl -s -X POST https://archive.softwareheritage.org/api/1/origin/save/git/url/${{ inputs.git-url }}/)
         echo test
         echo $response
         echo "::set-output name=result::$response"
