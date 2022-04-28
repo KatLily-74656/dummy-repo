@@ -1,0 +1,24 @@
+name: 'Archive with Software Heritage'
+
+inputs:
+  git-url:
+    description: 'URL of your git Repo'
+    required: true
+
+outputs:
+  result:
+    description: 'Result of the Archiving Request'
+    value: ${{ steps.result.outputs.result }}
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/checkout@v2
+    - id: result
+      run: |
+        sudo apt-get update >/dev/null; sudo apt-get install -y curl >/dev/null
+        response=$(curl -s -X POST ${{ inputs.git-url }})
+        echo test
+        echo $response
+        echo "::set-output name=result::$response"
+      shell: sh
